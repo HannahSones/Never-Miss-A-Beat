@@ -6,7 +6,7 @@ const stickyFooter = $("footer")
 $(toTopButton).on("click", function () {
   $("html, body").animate({
     scrollTop: 0
-  }, "slow")
+  }, 0)
 });
 
 $(headerWithNav).fadeIn(800, function() {
