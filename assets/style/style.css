@@ -3,40 +3,34 @@ html {
 }
 
 body {
+  min-width: 300px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+}
+
+.navbar-fixed {
+  min-width: 300px;
 }
 
 header {
   display: none;
 }
 
+#logo {
+  max-width: 50px;
+  margin: 5px;
+}
+
 section {
   max-width: 1024px;
   margin: auto;
-  display: none;
 }
 
 footer {
   display: none;
 }
 
-#test1 {
-  margin-top: 100px;
-}
-#test2 {
-  margin-top: 50px;
-}
-
-#test3 {
-  margin-bottom: 100px;
-}
-
 main {
   flex: 1 0 auto;
-}
-
-[data-time="current"] {
-  font-size: 2rem;
 }
