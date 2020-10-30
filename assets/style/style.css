@@ -13,24 +13,33 @@ body {
   min-width: 300px;
 }
 
-header {
-  display: none;
-}
-
 #logo {
   max-width: 50px;
   margin: 5px;
 }
 
-section {
-  max-width: 1024px;
-  margin: auto;
+#input_text {
+  display: inline block;
+  width: 65%;
+  color: white;
 }
 
-footer {
-  display: none;
+#search-btn {
+  display: inline block;
 }
+
 
 main {
   flex: 1 0 auto;
+  margin-top: 100px;
+}
+
+.example div {
+  background-color: lightgreen;
+  min-height: 10vh;
+}
+
+.example2 {
+  background-color: steelblue;
+  min-height: 30vh;
 }
