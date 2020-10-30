@@ -28,21 +28,18 @@ body {
   display: inline block;
 }
 
-section {
-  max-width: 1024px;
-  margin: auto;
-}
 
 main {
   flex: 1 0 auto;
+  margin-top: 100px;
 }
 
-.example {
+.example div {
   background-color: lightgreen;
-  min-height: 200px;
+  min-height: 10vh;
 }
 
 .example2 {
   background-color: steelblue;
-  min-height: 200px;
+  min-height: 30vh;
 }
