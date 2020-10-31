@@ -16,8 +16,6 @@ function getFromLocalStorage() {
 //set local storage 
 function setLocalStorage() {
     const searchHistory = getFromLocalStorage()
-
-
     searchHistory.push( /* val from search variable */ )
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 }
@@ -27,6 +25,7 @@ function displaySearchHistory() {
 
 
 }
+
 //event handler on search history list
 // Load the events carousel
 function loadEventsCarousel() {
@@ -35,15 +34,5 @@ function loadEventsCarousel() {
 
 
 
+loadEventsCarousel();
 
-
-
-
-
-$(document).ready(function() {
-
-
-    loadEventsCarousel();
-
-
-});
