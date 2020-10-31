@@ -25,7 +25,8 @@ function getSearchResults(queryURL) {
 // Search Button event listener
 $(searchBtn).on("click", function() {
     constructArtistSearchURL(8, lastfmAPIkey);
-    historySearchBtnClicked();
+    // historySearchBtnClicked();
+    eventSearchURL();
 });
 
 //set local storage 
