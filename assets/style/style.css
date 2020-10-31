@@ -35,11 +35,17 @@ main {
 }
 
 .example div {
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
   min-height: 10vh;
 }
 
 .example2 {
   background-color: steelblue;
   min-height: 30vh;
+}
+
+
+.eventCards {
+  margin-bottom: 0px;
+  text-align: center;
 }
