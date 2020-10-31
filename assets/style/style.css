@@ -28,14 +28,13 @@ body {
   display: inline block;
 }
 
-
 main {
   flex: 1 0 auto;
   margin-top: 100px;
 }
 
 .example div {
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
   min-height: 10vh;
 }
 
@@ -43,3 +42,9 @@ main {
   background-color: steelblue;
   min-height: 30vh;
 }
+
+.eventCards {
+  margin-bottom: 0px;
+  text-align: center;
+}
+

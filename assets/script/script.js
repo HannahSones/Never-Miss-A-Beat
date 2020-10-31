@@ -28,3 +28,22 @@ function displaySearchHistory() {
 
 }
 //event handler on search history list
+// Load the events carousel
+function loadEventsCarousel() {
+    $('.carousel').carousel();
+};
+
+
+
+
+
+
+
+
+$(document).ready(function() {
+
+
+    loadEventsCarousel();
+
+
+});
