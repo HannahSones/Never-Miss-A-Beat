@@ -19,9 +19,6 @@ $( document ).ready(function() {
 }); 
 
 
-$(searchBtn).on("click", function() {
-    eventSearchURL
-})
 
 // Creating link for events search
 function eventSearchURL(artist) {
