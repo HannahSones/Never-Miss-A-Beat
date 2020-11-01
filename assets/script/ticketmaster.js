@@ -1,4 +1,4 @@
-// Creating link for events search
+// Creating URL for events search
 function eventSearchURL() {
 
     const ticketmasterApiKey = "knq7HAEY6x0pW1WzGgOao1TMHDXEoiTR"
@@ -33,23 +33,35 @@ function getEventResults(eventURL) {
 // Show events in carousel
 function showEvents(eventData) {
     console.log("Event search results ", eventData);
+    
+    const eventResults = eventData._embedded.events;
 
-    let eventImage = eventData._embedded.events[0].images[0].url;
-    console.log("Event image ", eventImage);
-    let eventTitle = eventData._embedded.events[0].name;
-    console.log("Event title ", eventTitle);
-    let eventVenueName = eventData._embedded.events[0]._embedded.venues[0].name;
-    console.log("Event venue name ", eventVenueName);
-    let eventVenueCity = eventData._embedded.events[0]._embedded.venues[0].city.name;
-    console.log(eventVenueCity);
-    let eventDate = eventData._embedded.events[0].dates.start.localDate;
-    console.log(eventDate);
-    let eventLink = eventData._embedded.events[0].url;
-    console.log(eventLink);
+    for (eventResult of eventResults) {
+            
+            let eventImage = eventResult.images[0].url;
+            let eventTitle = eventResult.name;
+            let eventVenueName = eventResult._embedded.venues[0].name;
+            let eventVenueCity = eventResult._embedded.venues[0].city.name;
+            let eventDate = eventResult.dates.start.localDate;
+            let eventDateUK = new Date(eventDate).toLocaleDateString("en-GB");
+            let eventLink = eventResult.url;
 
-    $(".card-image").attr("src", eventImage);
-    $(".card-title").text(eventTitle);
-    $(".card-content").text(eventVenueName + eventVenueCity + eventDate);
-    $(".card-action").text(eventLink)
 
-};
+            $(".carousel-item").append(
+                `<div class="card-image">
+                    <img class="eventImage" src="${eventImage}">
+                    <span class="card-title eventTitle">${eventTitle}</span>
+                  </div>
+                  <div class="card-content eventContent">
+                    <p>${eventVenueName + ", " + eventVenueCity + "<br />" + eventDateUK}</p>
+                  </div>
+                  <div class="card-action">
+                    <a class="eventAction" href="${eventLink}" target="_blank">Get Tickets</a>
+                  </div>`
+            );
+            
+        };
+        
+    };
+
+    // Note, function is working but carousel is stacking rather than displaying side by side
