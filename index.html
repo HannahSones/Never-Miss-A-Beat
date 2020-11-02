@@ -13,6 +13,7 @@
 
   <!-- Materialize & custom stylesheets -->
   <link rel="stylesheet" href="./assets/style/materialize.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="./assets/style/style.css" rel="stylesheet" />
 
 </head>
@@ -27,7 +28,7 @@
       <nav class="nav-extended blue-grey darken-4">
         <div class="nav-wrapper">
           <a href="#" class="brand-logo"><img id="logo" src="./assets/images/logo.png" alt="logo" /></a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">&#9776;</i></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">dehaze</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="#">Some</a></li>
             <li><a href="#">Useful</a></li>
@@ -38,7 +39,7 @@
           <div class="row">
             <div class="input-field col s12 offset-l2 offset-m1">
               <input id="input_text" type="text" />
-              <label for="input_text">Search for artist</label>
+              <label for="input_text">Search for track</label>
               <button id="search-btn" class="btn-small waves-effect waves-light" name="search">Search</button>
             </div>
           </div>
@@ -60,89 +61,26 @@
     <div class="row">
 
       <!-- Search results -->
-      <div class="col s12 m8 l9 example">
+      <div class="col s12 m8 l9">
         <div class="row">
-          <div class="row">
-            <div class="col l6 s12 page1">
-              <div class="col s12">
-                <h4 class="header">Horizontal Card</h4>
-                <div class="card horizontal">
-                  <div class="card-image">
-                    <img src="https://lorempixel.com/100/190/nature/6">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">This is a link</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <ul data-search="result-list" class="collection">
+            <!-- JQuery - place to append results -->
+            <!-- 
+              <li class="collection-item avatar">
+                <img src="./assets/images/result-icon.png" alt="cover" class="circle">
+                <span class="title">Title</span>
+                <p>First Line</p>
+                <a href="#!" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+              </li> 
+            -->
+          </ul>
+          <div class="row custom-hide">
+            <div class="row center">
+              <ul class="pagination ">
+                <li class="active"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+              </ul>
             </div>
-            <div class="col l6 s12 page1">
-              <div class="col s12">
-                <h4 class="header">Horizontal Card</h4>
-                <div class="card horizontal">
-                  <div class="card-image">
-                    <img src="https://lorempixel.com/100/190/nature/6">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">This is a link</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col l6 s12 page2">
-              <div class="col s12">
-                <h4 class="header">Horizontal Card</h4>
-                <div class="card horizontal">
-                  <div class="card-image">
-                    <img src="https://lorempixel.com/100/190/nature/6">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">This is a link</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col l6 s12 page2">
-              <div class="col s12">
-                <h4 class="header">Horizontal Card</h4>
-                <div class="card horizontal">
-                  <div class="card-image">
-                    <img src="https://lorempixel.com/100/190/nature/6">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">This is a link</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row center">
-            <ul class="pagination ">
-              <li class="active"><a href="#!">1</a></li>
-              <li class="waves-effect"><a href="#!">2</a></li>
-            </ul>
           </div>
         </div>
 
@@ -155,23 +93,24 @@
         <hr />
 
         <!-- Carousel with events -->
-        <section>
-          <div class="row eventCards">
-            <h5>Upcoming events from your favourite artists</h5>
-          </div>
-          <div id="artistNotFound">
-            <a class="btn disabled">No events found</a>
-          </div>
-          <div class="row">
-            <div id="eventCarousel" class="carousel">
-              <div class="col m4">
-                <div class="card carousel-item">
-                </div>
+
+        <div class="row eventCards">
+          <h5>Upcoming events from your favourite artists</h5>
+        </div>
+        <div id="artistNotFound">
+          <a class="btn disabled">No events found</a>
+        </div>
+        <div class="row">
+          <div id="eventCarousel" class="carousel">
+            <div class="col m4">
+              <div class="card carousel-item">
               </div>
             </div>
           </div>
+        </div>
       </div>
-      </section>
+
+      <!-- HISTORY -->
 
       <aside class="col s12 m4 l3">
         <div class="example2 center">
@@ -213,7 +152,7 @@
 
   </footer>
 
-  <!-- jQuery url, used full, uncompressed jQuery as I had issues with min and compressed versions (some are stripped even from AJAX !!!) -->
+  <!-- jQuery url -->
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
 
@@ -224,10 +163,10 @@
   <script src="./assets/script/moment.js"></script>
 
   <!-- Custom scripts in script folder -->
-  <script src="./assets/script/main.js" defer></script>
-  <script src="./assets/script/history.js" defer></script>
-  <script src="./assets/script/lastfm.js" defer></script>
-  <script src="./assets/script/ticketmaster.js" defer></script>
+  <script src="./assets/script/main.js" ></script>
+  <script src="./assets/script/history.js" ></script>
+  <script src="./assets/script/lastfm.js" ></script>
+  <script src="./assets/script/ticketmaster.js" ></script>
 
   <!-- Animations script, for fun, only place event listeners and functions called from main script.js -->
   <script src="./assets/script/animations.js"></script>

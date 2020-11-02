@@ -14,25 +14,25 @@ loadEventsCarousel();
 // Get object throgh ajax
 function getSearchResults(queryURL) {
   $.ajax({
-      url: queryURL
-  }).then(function(response) {
-      console.log(response);
-  }).catch(function(){
-      console.log("error error");
+    url: queryURL
+  }).then(function (response) {
+    writeResultsToDoc(response);
+  }).catch(function () {
+    console.log("error error");
   })
 };
 
 // Search Button event listener
-$(searchBtn).on("click", function() {
-    constructArtistSearchURL(8, lastfmAPIkey);
-    eventSearchURL();
-    // historySearchBtnClicked();
+$(searchBtn).on("click", function () {
+  constructTrackSearchURL(8, lastfmAPIkey);
+  // eventSearchURL();
+  // historySearchBtnClicked();
 });
 
 //set local storage 
 function setLocalStorage() {
   const searchHistory = getFromLocalStorage()
-  searchHistory.push( /* val from search variable */ )
+  searchHistory.push( /* val from search variable */)
   localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 };
 
@@ -40,7 +40,7 @@ function setLocalStorage() {
 function getFromLocalStorage() {
   const storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
   if (storedSearchHistoy && Array.isArray(storedSearchHistory) && storedSearchHistory.length >= 1) {
-      return storedSearchHistory;
+    return storedSearchHistory;
   }
   return [];
 }
