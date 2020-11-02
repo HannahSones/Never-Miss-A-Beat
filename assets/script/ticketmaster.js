@@ -48,13 +48,13 @@ function showEvents(eventData) {
             `<div class="card-image">
                     <img class="eventImage" src="${eventImage}">
                     <span class="card-title eventTitle">${eventTitle}</span>
-                  </div>
-                  <div class="card-content eventContent">
+                </div>
+                <div class="card-content eventContent">
                     <p>${eventVenueName + ", " + eventVenueCity + "<br />" + eventDateUK}</p>
-                  </div>
-                  <div class="card-action">
+                </div>
+                <div class="card-action">
                     <a class="eventAction" href="${eventLink}" target="_blank">Get Tickets</a>
-                  </div>`
+                </div>`
         );
 
     };

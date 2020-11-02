@@ -12,15 +12,16 @@ function writeResultsToDoc(searchResults) {
     const presentedResults = $("[data-search='result-list']");
     presentedResults.empty();
     const searchedTrackList = searchResults.results.trackmatches.track;
-    console.log(searchedTrackList);
     for (let index = 0; index < searchedTrackList.length; index++) {
         const element = searchedTrackList[index];
-        let result = $("<li>", { "class": "collection-item avatar" });
-        result = result.append($("<img>", { "src": "./assets/images/result-icon.png", "alt": "cover", "class": "circle" }));
-        result = result.append($("<span>", { "class": "title" }).text(element.artist));
-        result = result.append($("<p>").text(element.name));
-        result = result.append($("<a>", { "href": element.url, "class": "secondary-content", "target": "_blank" }).append($("<i>", { "class": "material-icons" }).text("play_arrow")));
-        presentedResults.append(result);
+        presentedResults.append(
+            `<li class="collection-item avatar">
+                <img src="./assets/images/result-icon.png" alt="cover" class="circle">
+                <span class="title">${element.artist}</span>
+                <p>${element.name}</p>
+                <a href="${element.url}" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+            </li>`
+        );
     };
     const artistName = searchResults.results.trackmatches.track[0].artist
     eventSearchURL(artistName);
