@@ -2,9 +2,6 @@
 // Creating URL for events search
 function eventSearchURL(searchedArtist) {
     const ticketmasterApiKey = "knq7HAEY6x0pW1WzGgOao1TMHDXEoiTR";
-    // const todaysDate = moment().format();
-    // const sixMonthsLater = moment(todaysDate).add(6, "months");
-    // const searchedArtist = $("#input_text").val();
     const eventURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=" + ticketmasterApiKey + "&keyword=" + searchedArtist + "&locale=*&countryCode=GB";
     console.log("Event search URL", eventURL);
     getEventResults(eventURL);
@@ -44,21 +41,23 @@ function showEvents(eventData) {
         let eventLink = eventResult.url;
 
 
-        $(".carousel-item").append(
-            `<div class="card-image">
-                    <img class="eventImage" src="${eventImage}">
-                    <span class="card-title eventTitle">${eventTitle}</span>
+        $(".carousel").append(
+            `<div class="carousel-item">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="${eventImage}">
+                        <span class="card-title">${eventTitle}</span>
+                    </div>
+                    <div class="card-content">
+                            <p>${eventVenueName}, ${eventVenueCity}, ${eventDateUK}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="${eventLink}" target="_blank">Get tickets</a>
+                    </div>
                 </div>
-                <div class="card-content eventContent">
-                    <p>${eventVenueName + ", " + eventVenueCity + "<br />" + eventDateUK}</p>
-                </div>
-                <div class="card-action">
-                    <a class="eventAction" href="${eventLink}" target="_blank">Get Tickets</a>
-                </div>`
+          </div>`
         );
 
+        $('#eventCarousel').carousel();
     };
-
 };
-
-    // Note, function is working but carousel is stacking rather than displaying side by side

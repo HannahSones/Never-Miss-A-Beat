@@ -4755,7 +4755,7 @@ small {
 }
 
 .card .card-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 300;
 }
 
@@ -8412,7 +8412,7 @@ input[type=range]::-ms-thumb {
 .carousel .carousel-item {
   visibility: hidden;
   width: 200px;
-  height: 200px;
+  height: 300px;
   position: absolute;
   top: 0;
   left: 0;

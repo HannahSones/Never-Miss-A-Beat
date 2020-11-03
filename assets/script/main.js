@@ -3,13 +3,8 @@ const searchInputText = $("#input_text");
 const lastfmAPIkey = "6a57108ac7001b783396597bbb4b2c61"
 
 
-// Load the events carousel
-function loadEventsCarousel() {
-  $('.carousel').carousel();
-};
-
-loadEventsCarousel();
-
+// On page load, hide the artist not found error message
+$("#artistNotFound").hide();
 
 // Get object throgh ajax
 function getSearchResults(queryURL, handleResponse) {
@@ -24,9 +19,7 @@ function getSearchResults(queryURL, handleResponse) {
 
 // Search Button event listener
 $(searchBtn).on("click", function () {
-  constructLastFmURL(8, lastfmAPIkey);
-  // eventSearchURL();
-  // historySearchBtnClicked();
+  constructTrackSearchURL(8, lastfmAPIkey);
 });
 
 //set local storage 
@@ -44,3 +37,5 @@ function getFromLocalStorage() {
   }
   return [];
 }
+
+
