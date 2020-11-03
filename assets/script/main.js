@@ -10,6 +10,8 @@ function loadEventsCarousel() {
 
 loadEventsCarousel();
 
+$("#artistNotFound").hide();
+
 
 // Get object throgh ajax
 function getSearchResults(queryURL) {
