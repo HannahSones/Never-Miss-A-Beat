@@ -19,7 +19,7 @@ function writeResultsToDoc(searchResults) {
                 <img src="./assets/images/result-icon.png" alt="cover" class="circle">
                 <span class="title">${element.artist}</span>
                 <p>${element.name}</p>
-                <a href="${element.url}" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+                <a href="${element.url}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
             </li>`
         );
     };
