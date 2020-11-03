@@ -12,11 +12,11 @@ loadEventsCarousel();
 
 
 // Get object throgh ajax
-function getSearchResults(queryURL) {
+function getSearchResults(queryURL, handleResponse) {
   $.ajax({
     url: queryURL
   }).then(function (response) {
-    writeResultsToDoc(response);
+    handleResponse(response);
   }).catch(function () {
     console.log("error error");
   })
@@ -24,7 +24,7 @@ function getSearchResults(queryURL) {
 
 // Search Button event listener
 $(searchBtn).on("click", function () {
-  constructTrackSearchURL(8, lastfmAPIkey);
+  constructLastFmURL(8, lastfmAPIkey);
   // eventSearchURL();
   // historySearchBtnClicked();
 });
