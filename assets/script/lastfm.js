@@ -1,4 +1,3 @@
-
 // Get URL for ajax
 function constructTrackSearchURL(resultsLimit, apiKey) {
     const trackName = searchInputText.val().replace(/ /g, "");

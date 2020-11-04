@@ -38,7 +38,7 @@
         <div class="col s12">
           <div class="row">
             <div class="input-field col s12 offset-l2 offset-m1">
-              <input id="input_text" type="text" />
+              <input id="input_text" type="text" name="searchedItem" />
               <label class="search-label" for="input_text">Search for track</label>
               <button id="search-btn" class="btn-small waves-effect waves-light" name="search">Search</button>
             </div>
@@ -90,10 +90,8 @@
       <!-- HISTORY -->
       <aside class="col s12 m4 l3">
         <div class="example2 center">
-          <ul class="collection-with-header" id="searchHistory" data-history="list">
-            <li class="collection-header">
-              <h6>Search History</h6>
-            </li>
+          <div class="collection with-header" id="searchHistory">
+          </div>
         </div>
       </aside>
     </div>
