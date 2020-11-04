@@ -63,7 +63,8 @@
 
       <!-- Search results -->
       <div class="col s12 m8 l9">
-        <div class="row">
+        <!-- element below to hide -->
+        <div class="row"> 
           <ul data-search="result-list" class="collection">
 
             <!-- JQuery - place to append results -->
@@ -73,10 +74,7 @@
 
         <!-- Carousel with events -->
         <div class="row eventCards">
-          <h5>Upcoming events from your favourite artists</h5>
-        </div>
-        <div id="artistNotFound">
-          <a class="btn disabled">No events found</a>
+          <h5 data-status="event-search"></h5>
         </div>
           <div id="eventCarousel" class="carousel">
           </div>

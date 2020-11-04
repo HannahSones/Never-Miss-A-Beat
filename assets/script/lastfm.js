@@ -10,7 +10,7 @@ function constructLastFmURL(resultsLimit, apiKey) {
 function searchInputError() {
     $(presentedResults).empty();
     presentedResults.append(
-        "<h4>The service is out of order, please try again later.</h4>"
+        "<h4>The track search service is out of order, please try again later.</h4>"
     )
 };
 
