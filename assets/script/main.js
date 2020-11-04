@@ -5,9 +5,6 @@ const presentedResults = $("[data-search='result-list']");
 const displayTrackSearchError = $("#error-message");
 const displayEventSearchStatus = $("[data-status='event-search']");
 
-// On page load, hide the artist not found error message
-$("#artistNotFound").hide();
-
 // Search Button event listener
 $(searchBtn).on("click", function () {
   $(displayTrackSearchError).empty();
