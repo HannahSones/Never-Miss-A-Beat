@@ -1,5 +1,3 @@
-let carouselInstance ;
-
 // Creating URL for events search
 function eventSearchURL(searchedArtist) {
     const ticketmasterApiKey = "knq7HAEY6x0pW1WzGgOao1TMHDXEoiTR";
