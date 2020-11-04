@@ -1,26 +1,29 @@
 const searchBtn = $("#search-btn");
 const searchInputText = $("#input_text");
-const lastfmAPIkey = "6a57108ac7001b783396597bbb4b2c61"
-
+const lastfmAPIkey = "6a57108ac7001b783396597bbb4b2c61";
 
 // On page load, hide the artist not found error message
 $("#artistNotFound").hide();
 
-// Get object throgh ajax
-function getSearchResults(queryURL, handleResponse) {
+// Search Button event listener
+$(searchBtn).on("click", function () {
+  if ((searchInputText.val().replace(/ /g, "")) < 1) {
+    console.log("Input error: empty text area");
+  };
+  const resultsLimit = 8;
+  constructLastFmURL(resultsLimit, lastfmAPIkey);
+});
+
+// Get object throgh ajax, applicable for every ajax requests
+function getSearchResults(queryURL, handleResponse, handleError) {
   $.ajax({
     url: queryURL
   }).then(function (response) {
     handleResponse(response);
   }).catch(function () {
-    console.log("error error");
+    handleError();
   })
 };
-
-// Search Button event listener
-$(searchBtn).on("click", function () {
-  constructTrackSearchURL(8, lastfmAPIkey);
-});
 
 //set local storage 
 function setLocalStorage() {

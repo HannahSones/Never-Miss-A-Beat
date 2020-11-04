@@ -1,13 +1,17 @@
 
-// Get URL for ajax
+// Construct URL for LastFM API
 function constructLastFmURL(resultsLimit, apiKey) {
     const trackName = searchInputText.val().replace(/ /g, "");
     const searchForTrackURL = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${trackName}&api_key=${apiKey}&format=json&limit=${resultsLimit}`;
-    console.log(searchForTrackURL);
-    getSearchResults(searchForTrackURL, constructAudioDBSearchURL);
+    getSearchResults(searchForTrackURL, constructAudioDBSearchURL, searchInputError);
 };
 
+// Input length check failure or no results
+function searchInputError() {
+    console.log("Input error, no match found or name misspelled.");
+}
 
+// Construct URL for AudioDB API
 function constructAudioDBSearchURL(lastFmObject) {
     const lastFmTracks = lastFmObject.results.trackmatches.track;
     const relevantArtist = lastFmTracks[0].artist.split(' ').join('+');
@@ -15,15 +19,21 @@ function constructAudioDBSearchURL(lastFmObject) {
     console.log("Artist: ", relevantArtist, "track:", relevantTrack);
     const audioDbUrl = `https://theaudiodb.com/api/v1/json/1/searchtrack.php?s=${relevantArtist}&t=${relevantTrack}`;
     console.log(audioDbUrl);
-    getSearchResults(audioDbUrl, eventSearchURL)
+    getSearchResults(audioDbUrl, eventSearchURL, searchForVidError)
     writeResultsToDoc(lastFmTracks);
-}
+};
 
+// No results for youtube video
+function searchForVidError() {
+    console.log("No youtube video found");
+};
+
+// Video search for most relevant search
 function embedYtVideo() {
     console.log();
-}
+};
 
-// Fill results cards
+// Write searched tracks onto document
 function writeResultsToDoc(lastFmTracks) {
     const presentedResults = $("[data-search='result-list']");
     presentedResults.empty();
@@ -39,6 +49,4 @@ function writeResultsToDoc(lastFmTracks) {
             </li>`
         );
     };
-    // const artistName = searchResults.results.trackmatches.track[0].artist
-    // eventSearchURL(artistName);
 };
