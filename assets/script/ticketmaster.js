@@ -1,4 +1,3 @@
-
 // Creating URL for events search
 function eventSearchURL(relevantTrackData) {
     const youtubeURL = relevantTrackData.track[0].strMusicVid

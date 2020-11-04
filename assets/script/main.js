@@ -7,8 +7,9 @@ const displayEventSearchStatus = $("[data-status='event-search']");
 
 // Search Button event listener
 $(searchBtn).on("click", function () {
-  $(displayTrackSearchError).empty();
-  $(presentedResults).empty();
+  // $(displayTrackSearchError).empty();
+  // $(".carousel").empty();
+  // $(presentedResults).empty();
   if ((searchInputText.val().replace(/ /g, "")) < 1) {
     $(displayTrackSearchError).text("Input field cannot be empty")
   } else {
