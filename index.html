@@ -41,6 +41,7 @@
               <input id="input_text" type="text" />
               <label class="search-label" for="input_text">Search for track</label>
               <button id="search-btn" class="btn-small waves-effect waves-light" name="search">Search</button>
+              <p id="error-message"></p>
             </div>
           </div>
         </div>
@@ -62,7 +63,12 @@
 
       <!-- Search results -->
       <div class="col s12 m8 l9">
-        <div class="row">
+        <div data-player="embed-YT" class="row center">
+          <!-- <iframe width="300" height="200" src="https://www.youtube.com/embed/MSgnf-tBN9s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        </div>
+
+        <!-- element below to hide -->
+        <div class="row"> 
           <ul data-search="result-list" class="collection">
 
             <!-- JQuery - place to append results -->
@@ -72,10 +78,7 @@
 
         <!-- Carousel with events -->
         <div class="row eventCards">
-          <h5>Upcoming events from your favourite artists</h5>
-        </div>
-        <div id="artistNotFound">
-          <a class="btn disabled">No events found</a>
+          <h5 data-status="event-search"></h5>
         </div>
           <div id="eventCarousel" class="carousel">
           </div>
@@ -127,19 +130,22 @@
   crossorigin="anonymous"></script>
 
   <!-- Materialize script, in script folder -->
-  <script src="./assets/script/materialize.js" defer></script>
+  <script src="./assets/script/materialize.js" ></script>
 
   <!-- Moment.js script, in script folder -->
-  <script src="./assets/script/moment.js" defer></script>
+  <script src="./assets/script/moment.js" ></script>
 
   <!-- Custom scripts in script folder -->
   <script src="./assets/script/main.js" defer></script>
   <script src="./assets/script/history.js" defer></script>
   <script src="./assets/script/lastfm.js" defer></script>
   <script src="./assets/script/ticketmaster.js" defer></script>
+  <script src="./assets/script/embedyt.js" defer></script>
+  <script src="./assets/script/audiodb.js" defer></script>
+  
 
   <!-- Animations script  -->
-  <script src="./assets/script/animations.js" defer></script>
+  <script src="./assets/script/animations.js" ></script>
 
 </body>
 

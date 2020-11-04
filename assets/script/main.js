@@ -1,26 +1,31 @@
 const searchBtn = $("#search-btn");
 const searchInputText = $("#input_text");
-const lastfmAPIkey = "6a57108ac7001b783396597bbb4b2c61"
-
-
-// On page load, hide the artist not found error message
-$("#artistNotFound").hide();
-
-// Get object throgh ajax
-function getSearchResults(queryURL) {
-  $.ajax({
-    url: queryURL
-  }).then(function (response) {
-    writeResultsToDoc(response);
-  }).catch(function () {
-    console.log("error error");
-  })
-};
+const lastfmAPIkey = "6a57108ac7001b783396597bbb4b2c61";
+const presentedResults = $("[data-search='result-list']");
+const displayTrackSearchError = $("#error-message");
+const displayEventSearchStatus = $("[data-status='event-search']");
 
 // Search Button event listener
 $(searchBtn).on("click", function () {
-  constructTrackSearchURL(8, lastfmAPIkey);
+  // $(displayTrackSearchError).empty();
+  // $(".carousel").empty();
+  // $(presentedResults).empty();
+  if ((searchInputText.val().replace(/ /g, "")) < 1) {
+    $(displayTrackSearchError).text("Input field cannot be empty")
+  } else {
+    const resultsLimit = 8;
+    constructLastFmURL(resultsLimit, lastfmAPIkey);
+  }
 });
+
+// Get object throgh ajax, applicable for every ajax requests
+function getSearchResults(queryURL, handleResponse, handleError) {
+  $.ajax({
+    url: queryURL,
+    success: handleResponse,
+    error: handleError
+  })
+};
 
 //set local storage 
 function setLocalStorage() {
