@@ -1,27 +1,30 @@
 const searchBtn = $("#search-btn");
 const searchInputText = $("#input_text");
 const lastfmAPIkey = "6a57108ac7001b783396597bbb4b2c61";
+const presentedResults = $("[data-search='result-list']");
+const displayError = $("#error-message");
 
 // On page load, hide the artist not found error message
 $("#artistNotFound").hide();
 
 // Search Button event listener
 $(searchBtn).on("click", function () {
+  $(displayError).empty();
+  $(presentedResults).empty();
   if ((searchInputText.val().replace(/ /g, "")) < 1) {
-    console.log("Input error: empty text area");
-  };
-  const resultsLimit = 8;
-  constructLastFmURL(resultsLimit, lastfmAPIkey);
+    $(displayError).text("Input field cannot be empty")
+  } else {
+    const resultsLimit = 8;
+    constructLastFmURL(resultsLimit, lastfmAPIkey);
+  }
 });
 
 // Get object throgh ajax, applicable for every ajax requests
 function getSearchResults(queryURL, handleResponse, handleError) {
   $.ajax({
-    url: queryURL
-  }).then(function (response) {
-    handleResponse(response);
-  }).catch(function () {
-    handleError();
+    url: queryURL,
+    success: handleResponse,
+    error: handleError
   })
 };
 

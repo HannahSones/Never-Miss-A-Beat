@@ -10,15 +10,13 @@ function eventSearchURL(relevantTrackData) {
 
 // Handle errors during event search
 function eventSearchError() {
-    console.log("Request failed: artist not found");
     $("#artistNotFound").show();
-}
-
+};
 
 // Show events in carousel
 function showEvents(eventData) {
-    console.log("Event search results ", eventData);
     const eventResults = eventData._embedded.events;
+    $(".carousel").empty();
     for (eventResult of eventResults) {
         let eventImage = eventResult.images[0].url;
         let eventTitle = eventResult.name;
@@ -44,5 +42,5 @@ function showEvents(eventData) {
             </div>`
         );
         $('#eventCarousel').carousel();
-    };
+    }
 };

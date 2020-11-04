@@ -8,19 +8,29 @@ function constructLastFmURL(resultsLimit, apiKey) {
 
 // Input length check failure or no results
 function searchInputError() {
-    console.log("Input error, no match found or name misspelled.");
-}
+    $(presentedResults).empty();
+    presentedResults.append(
+        "<h4>The service is out of order, please try again later.</h4>"
+    )
+};
 
 // Construct URL for AudioDB API
 function constructAudioDBSearchURL(lastFmObject) {
     const lastFmTracks = lastFmObject.results.trackmatches.track;
-    const relevantArtist = lastFmTracks[0].artist.split(' ').join('+');
-    const relevantTrack = lastFmTracks[0].name.split(' ').join('+');
-    console.log("Artist: ", relevantArtist, "track:", relevantTrack);
-    const audioDbUrl = `https://theaudiodb.com/api/v1/json/1/searchtrack.php?s=${relevantArtist}&t=${relevantTrack}`;
-    console.log(audioDbUrl);
-    getSearchResults(audioDbUrl, eventSearchURL, searchForVidError)
-    writeResultsToDoc(lastFmTracks);
+    if (lastFmTracks.length < 1) {
+        $(presentedResults).empty();
+        presentedResults.append(
+            `<li>
+                <h4 class="center">Sorry, no results found.</h4>
+            </li>`
+        )
+    } else {
+        const relevantArtist = lastFmTracks[0].artist.split(' ').join('+');
+        const relevantTrack = lastFmTracks[0].name.split(' ').join('+');
+        const audioDbUrl = `https://theaudiodb.com/api/v1/json/1/searchtrack.php?s=${relevantArtist}&t=${relevantTrack}`;
+        getSearchResults(audioDbUrl, eventSearchURL, searchForVidError);
+        writeResultsToDoc(lastFmTracks);
+    }
 };
 
 // No results for youtube video
@@ -35,18 +45,17 @@ function embedYtVideo() {
 
 // Write searched tracks onto document
 function writeResultsToDoc(lastFmTracks) {
-    const presentedResults = $("[data-search='result-list']");
-    presentedResults.empty();
-    // const searchedTrackList = searchResults.results.trackmatches.track;
+    $(presentedResults).empty();
     for (let index = 0; index < lastFmTracks.length; index++) {
         const element = lastFmTracks[index];
         presentedResults.append(
             `<li class="collection-item avatar">
-                <img src="./assets/images/result-icon.png" alt="cover" class="circle">
-                <span class="title">${element.artist}</span>
-                <p>${element.name}</p>
-                <a href="${element.url}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
-            </li>`
-        );
-    };
+                    <img src="./assets/images/result-icon.png" alt="cover" class="circle">
+                    <span class="title">${element.artist}</span>
+                    <p>${element.name}</p>
+                    <a href="${element.url}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+                </li>`
+        )
+    }
+
 };
