@@ -1,4 +1,3 @@
-
 // Creating URL for events search
 function eventSearchURL(searchedArtist) {
     const ticketmasterApiKey = "knq7HAEY6x0pW1WzGgOao1TMHDXEoiTR";
@@ -30,6 +29,8 @@ function showEvents(eventData) {
 
     const eventResults = eventData._embedded.events;
 
+    $('#eventCarousel').empty();
+
     for (eventResult of eventResults) {
 
         let eventImage = eventResult.images[0].url;
@@ -41,7 +42,7 @@ function showEvents(eventData) {
         let eventLink = eventResult.url;
 
 
-        $(".carousel").append(
+        $("#eventCarousel").append(
             `<div class="carousel-item">
                 <div class="card">
                     <div class="card-image">
@@ -56,8 +57,7 @@ function showEvents(eventData) {
                     </div>
                 </div>
           </div>`
-        );
-
-        $('#eventCarousel').carousel();
+        );  
     };
+    $('#eventCarousel').carousel();
 };
