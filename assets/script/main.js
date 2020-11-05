@@ -2,7 +2,6 @@ const searchBtn = $("#search-btn");
 const searchInputText = $("#input_text");
 const lastfmAPIkey = "6a57108ac7001b783396597bbb4b2c61";
 const presentedResults = $("[data-search='result-list']");
-const topTenTrackList = $("top-ten-list");
 const displayTrackSearchError = $("#error-message");
 const displayEventSearchStatus = $("[data-status='event-search']");
 const vidContainer = $("[data-player='embed-YT']");
@@ -13,6 +12,7 @@ constructTopTenTrackURL();
 $(searchBtn).on("click", function(event) {
     // event.preventDefault();
     $(displayTrackSearchError).empty();
+    $("#top-ten-list").hide();
     if ((searchInputText.val().replace(/ /g, "")) < 1) {
         $(displayTrackSearchError).text("Input field cannot be empty")
     } else {

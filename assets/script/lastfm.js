@@ -54,9 +54,11 @@ function getTopTenTracks(topTenTracksURL) {
 // Write top ten UK tracks onto document on page load
 function writeTopTenTracks(topTenResults) {
     console.log(topTenResults);
-    // $("#top-ten-list").empty();
-
+    
     const topTracks = topTenResults.tracks.track;
+    
+    $("#top-ten-list").empty();
+
 
     for (topTrack of topTracks) {
 
@@ -67,13 +69,13 @@ function writeTopTenTracks(topTenResults) {
         let trackURL = topTrack.url;
         console.log(trackURL);
 
-        topTenTrackList.append(
+        $("#top-ten-list").append(
             `<li class="collection-item avatar">
-                <img src="./assets/images/results-icon.png" alt="cover" class="circle">
+                <img src="./assets/images/result-icon.png" alt="cover" class="circle">
                 <span class="title">${trackArtist}</span>
                 <p>${trackName}"</p>
                 <a href="${trackURL}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
                 </li>`
-        )
-    }
+        );
+    };
 }};
