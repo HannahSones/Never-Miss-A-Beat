@@ -2,11 +2,13 @@ const searchBtn = $("#search-btn");
 const searchInputText = $("#input_text");
 const lastfmAPIkey = "6a57108ac7001b783396597bbb4b2c61";
 const presentedResults = $("[data-search='result-list']");
+const topTenTrackList = $("top-ten-list");
 const displayTrackSearchError = $("#error-message");
 const displayEventSearchStatus = $("[data-status='event-search']");
 const vidContainer = $("[data-player='embed-YT']");
 
 displaySearchHistory();
+constructTopTenTrackURL();
 // Search Button event listener
 $(searchBtn).on("click", function(event) {
     // event.preventDefault();
@@ -19,7 +21,7 @@ $(searchBtn).on("click", function(event) {
     }
 });
 
-// Get object throgh ajax, applicable for every ajax requests
+// Get object through ajax, applicable for every ajax requests
 function getSearchResults(queryURL, handleResponse, handleError) {
     $.ajax({
         url: queryURL,

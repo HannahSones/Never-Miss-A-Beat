@@ -1,9 +1,10 @@
 // Construct URL for LastFM API
 function constructLastFmURL(resultsLimit, apiKey) {
     const trackName = searchInputText.val().replace(/ /g, "");
-    const searchForTrackURL = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${trackName}&api_key=${apiKey}&format=json&limit=${resultsLimit}`;
+    const searchForTrackURL = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${trackName}&api_key=${apiKey}&format=json&limit=${resultsLimit}`;
     getSearchResults(searchForTrackURL, constructAudioDBSearchURL, searchInputError);
 };
+
 
 // Input length check failure or no results
 function searchInputError() {
@@ -24,7 +25,55 @@ function writeResultsToDoc(lastFmTracks) {
                 <span class="title">${element.artist}</span>
                 <p>${element.name}</p>
                 <a href="${element.url}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
-            </li>`
+                </li>`
         )
     }
 };
+
+
+// Construct URL for Top Ten Tracks using LastFM API
+function constructTopTenTrackURL() {
+    const trackLimit = 10;
+    const topTenTracksURL = `https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=${lastfmAPIkey}&format=json&limit=${trackLimit}`;
+    console.log(topTenTracksURL);
+    getTopTenTracks(topTenTracksURL);
+};
+
+
+
+// Using ajax call to get object for event results
+function getTopTenTracks(topTenTracksURL) {
+    $.ajax({
+        url: topTenTracksURL,
+        method: "GET"
+    }).then(function (topTenResults) {
+        writeTopTenTracks(topTenResults);
+});
+
+
+// Write top ten UK tracks onto document on page load
+function writeTopTenTracks(topTenResults) {
+    console.log(topTenResults);
+    // $("#top-ten-list").empty();
+
+    const topTracks = topTenResults.tracks.track;
+
+    for (topTrack of topTracks) {
+
+        let trackArtist = topTrack.artist.name;
+        console.log(trackArtist);
+        let trackName = topTrack.name;
+        console.log(trackName);
+        let trackURL = topTrack.url;
+        console.log(trackURL);
+
+        topTenTrackList.append(
+            `<li class="collection-item avatar">
+                <img src="./assets/images/results-icon.png" alt="cover" class="circle">
+                <span class="title">${trackArtist}</span>
+                <p>${trackName}"</p>
+                <a href="${trackURL}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+                </li>`
+        )
+    }
+}};
