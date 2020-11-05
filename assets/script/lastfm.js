@@ -1,7 +1,7 @@
 // Construct URL for LastFM API
 function constructLastFmURL(resultsLimit, apiKey) {
     const trackName = searchInputText.val().replace(/ /g, "");
-    const searchForTrackURL = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${trackName}&api_key=${apiKey}&format=json&limit=${resultsLimit}`;
+    const searchForTrackURL = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${trackName}&api_key=${apiKey}&format=json&limit=${resultsLimit}`;
     getSearchResults(searchForTrackURL, constructAudioDBSearchURL, searchInputError);
 };
 
