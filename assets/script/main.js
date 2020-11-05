@@ -13,6 +13,7 @@ $(searchBtn).on("click", function(event) {
     // event.preventDefault();
     $(displayTrackSearchError).empty();
     $("#top-ten-list").hide();
+    $(".topTenTitle").hide();
     if ((searchInputText.val().replace(/ /g, "")) < 1) {
         $(displayTrackSearchError).text("Input field cannot be empty")
     } else {

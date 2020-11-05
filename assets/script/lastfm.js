@@ -35,7 +35,6 @@ function writeResultsToDoc(lastFmTracks) {
 function constructTopTenTrackURL() {
     const trackLimit = 10;
     const topTenTracksURL = `https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=${lastfmAPIkey}&format=json&limit=${trackLimit}`;
-    console.log(topTenTracksURL);
     getTopTenTracks(topTenTracksURL);
 };
 
@@ -53,21 +52,18 @@ function getTopTenTracks(topTenTracksURL) {
 
 // Write top ten UK tracks onto document on page load
 function writeTopTenTracks(topTenResults) {
-    console.log(topTenResults);
     
     const topTracks = topTenResults.tracks.track;
     
     $("#top-ten-list").empty();
+    $(".topTenTitle").show();
 
 
     for (topTrack of topTracks) {
 
         let trackArtist = topTrack.artist.name;
-        console.log(trackArtist);
         let trackName = topTrack.name;
-        console.log(trackName);
         let trackURL = topTrack.url;
-        console.log(trackURL);
 
         $("#top-ten-list").append(
             `<li class="collection-item avatar">
