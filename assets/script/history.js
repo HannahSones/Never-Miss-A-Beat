@@ -33,11 +33,17 @@ function getFromLocalStorage() {
 // Display history in the app
 function displaySearchHistory() {
     searchHistory = getFromLocalStorage();
-    $("#searchHistory").empty();
-    // let ulElement = $("<div>").addClass("collection-item");
-    searchHistory.forEach((item) => {
-        $("#searchHistory").prepend(
-            `<tr><td class="center"><a href="#">${item.name}</a></td></tr>`
+    if (searchHistory.length == 0) {
+        $("#searchHistory").empty();
+        $("#searchHistory").append(
+            `<tr><td class="center">No results here!</td></tr>`
         )
-    })
+    } else {
+        $("#searchHistory").empty();
+        searchHistory.forEach((item) => {
+            $("#searchHistory").prepend(
+                `<tr><td class="center"><a href="#">${item.name}</a></td></tr>`
+            )
+        })
+    }
 };
