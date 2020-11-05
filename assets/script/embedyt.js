@@ -8,11 +8,13 @@ function embedYtVideo(youtubeURL) {
   if ((typeof youtubeURL) === "string") {
     const vidID = extractVidIDfromURL(youtubeURL);
     writeYtVidToDoc(vidID);
+  } else {
+    vidContainer.empty();
   }
 };
 
 function writeYtVidToDoc(vidID) {
-  const vidContainer = $("[data-player='embed-YT']");
+  // const vidContainer = $("[data-player='embed-YT']");
   vidContainer.empty().append(
     `<iframe width="300" height="200" src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
   )
