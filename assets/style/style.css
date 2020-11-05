@@ -51,3 +51,31 @@ main {
 #input_text {
     border-bottom: 1px solid white;
 }
+
+#error-message {
+    display: flex;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    line-height: 0.3rem;
+    font-size: 0.8rem;
+    color: rgb(255, 153, 153);
+}
+
+header .row {
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 800px) {
+    iframe {
+        width: 500px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    iframe {
+        width: 300px;
+        height: 200px;
+    }
+}

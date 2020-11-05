@@ -1,18 +1,23 @@
-// Get URL for ajax
-function constructTrackSearchURL(resultsLimit, apiKey) {
+// Construct URL for LastFM API
+function constructLastFmURL(resultsLimit, apiKey) {
     const trackName = searchInputText.val().replace(/ /g, "");
     const searchForTrackURL = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${trackName}&api_key=${apiKey}&format=json&limit=${resultsLimit}`;
-    console.log(searchForTrackURL);
-    getSearchResults(searchForTrackURL);
+    getSearchResults(searchForTrackURL, constructAudioDBSearchURL, searchInputError);
 };
 
-// Fill results cards
-function writeResultsToDoc(searchResults) {
-    const presentedResults = $("[data-search='result-list']");
-    presentedResults.empty();
-    const searchedTrackList = searchResults.results.trackmatches.track;
-    for (let index = 0; index < searchedTrackList.length; index++) {
-        const element = searchedTrackList[index];
+// Input length check failure or no results
+function searchInputError() {
+    $(presentedResults).empty();
+    presentedResults.append(
+        "<h4>The track search service is out of order, please try again later.</h4>"
+    )
+};
+
+// Write searched tracks onto document
+function writeResultsToDoc(lastFmTracks) {
+    $(presentedResults).empty();
+    for (let index = 0; index < lastFmTracks.length; index++) {
+        const element = lastFmTracks[index];
         presentedResults.append(
             `<li class="collection-item avatar">
                 <img src="./assets/images/result-icon.png" alt="cover" class="circle">
@@ -20,8 +25,6 @@ function writeResultsToDoc(searchResults) {
                 <p>${element.name}</p>
                 <a href="${element.url}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
             </li>`
-        );
-    };
-    const artistName = searchResults.results.trackmatches.track[0].artist
-    eventSearchURL(artistName);
+        )
+    }
 };
