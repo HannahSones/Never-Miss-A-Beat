@@ -16,6 +16,7 @@ $(searchBtn).on("click", function() {
         const resultsLimit = 8;
         constructLastFmURL(resultsLimit, lastfmAPIkey);
         displaySearchHistory();
+        getTrackName();
     }
 });
 
