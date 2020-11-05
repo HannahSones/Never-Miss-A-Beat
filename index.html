@@ -64,7 +64,7 @@
       <!-- Search results -->
       <div class="col s12 m8 l9">
         <div data-player="embed-YT" class="row center">
-          <!-- <iframe width="300" height="200" src="https://www.youtube.com/embed/MSgnf-tBN9s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+          <!-- Embed yt player -->
         </div>
 
         <!-- element below to hide -->
@@ -85,11 +85,17 @@
       </div>
 
       <!-- HISTORY -->
-      <aside class="col s12 m4 l3">
-        <div class="example2 center">
-          <div class="collection with-header" id="searchHistory">
-          </div>
-        </div>
+      <aside class="col s12 m4 l3 center">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th class="center">Recently searched</th>
+              </tr>
+            </thead>
+            <tbody id="searchHistory" >
+              <!-- search history results -->
+            </tbody>
+          </table>
       </aside>
     </div>
 
@@ -115,7 +121,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        © 2014 Copyright to Hannah, Mark, Pav and Stefan
+        © 2014 Copyright to Hannah, Mark and Pav
         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>

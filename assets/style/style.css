@@ -33,16 +33,6 @@ main {
     margin-top: 100px;
 }
 
-.example div {
-    /* background-color: lightgreen; */
-    min-height: 10vh;
-}
-
-.example2 {
-    /*background-color: steelblue; */
-    min-height: 30vh;
-}
-
 .eventCards {
     margin-bottom: 0px;
     text-align: center;
@@ -65,6 +55,16 @@ main {
 header .row {
     margin-bottom: 10px;
 }
+
+/* .history-table {
+    border: 2px solid black;
+    text-align: center;
+} */
+/* 
+.history-table th td tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+} */
 
 @media screen and (min-width: 800px) {
     iframe {

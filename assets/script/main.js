@@ -8,8 +8,8 @@ const vidContainer = $("[data-player='embed-YT']");
 
 displaySearchHistory();
 // Search Button event listener
-$(searchBtn).on("click", function() {
-    
+$(searchBtn).on("click", function(event) {
+    // event.preventDefault();
     $(displayTrackSearchError).empty();
     if ((searchInputText.val().replace(/ /g, "")) < 1) {
         $(displayTrackSearchError).text("Input field cannot be empty")
