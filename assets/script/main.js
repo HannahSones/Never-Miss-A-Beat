@@ -6,41 +6,24 @@ const displayTrackSearchError = $("#error-message");
 const displayEventSearchStatus = $("[data-status='event-search']");
 
 // Search Button event listener
-$(searchBtn).on("click", function () {
-  // $(displayTrackSearchError).empty();
-  // $(".carousel").empty();
-  // $(presentedResults).empty();
-  if ((searchInputText.val().replace(/ /g, "")) < 1) {
-    $(displayTrackSearchError).text("Input field cannot be empty")
-  } else {
-    const resultsLimit = 8;
-    constructLastFmURL(resultsLimit, lastfmAPIkey);
-  }
+$(searchBtn).on("click", function() {
+    // $(displayTrackSearchError).empty();
+    // $(".carousel").empty();
+    // $(presentedResults).empty();
+    if ((searchInputText.val().replace(/ /g, "")) < 1) {
+        $(displayTrackSearchError).text("Input field cannot be empty")
+    } else {
+        const resultsLimit = 8;
+        constructLastFmURL(resultsLimit, lastfmAPIkey);
+        displaySearchHistory();
+    }
 });
 
 // Get object throgh ajax, applicable for every ajax requests
 function getSearchResults(queryURL, handleResponse, handleError) {
-  $.ajax({
-    url: queryURL,
-    success: handleResponse,
-    error: handleError
-  })
+    $.ajax({
+        url: queryURL,
+        success: handleResponse,
+        error: handleError
+    })
 };
-
-//set local storage 
-function setLocalStorage() {
-  const searchHistory = getFromLocalStorage()
-  searchHistory.push( /* val from search variable */)
-  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-};
-
-//get from local storage
-function getFromLocalStorage() {
-  const storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
-  if (storedSearchHistoy && Array.isArray(storedSearchHistory) && storedSearchHistory.length >= 1) {
-    return storedSearchHistory;
-  }
-  return [];
-}
-
-

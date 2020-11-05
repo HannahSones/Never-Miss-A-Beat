@@ -1,81 +1,81 @@
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  min-width: 300px;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    min-width: 300px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .navbar-fixed {
-  min-width: 300px;
+    min-width: 300px;
 }
 
 #logo {
-  max-width: 50px;
-  margin: 5px;
+    max-width: 50px;
+    margin: 5px;
 }
 
 #input_text {
-  display: inline block;
-  width: 65%;
-  color: white;
+    display: inline block;
+    width: 65%;
+    color: white;
 }
 
 #search-btn {
-  display: inline block;
+    display: inline block;
 }
 
 main {
-  flex: 1 0 auto;
-  margin-top: 100px;
+    flex: 1 0 auto;
+    margin-top: 100px;
 }
 
 .example div {
-  /* background-color: lightgreen; */
-  min-height: 10vh;
+    /* background-color: lightgreen; */
+    min-height: 10vh;
 }
 
 .example2 {
-  background-color: steelblue;
-  min-height: 30vh;
+    /*background-color: steelblue; */
+    min-height: 30vh;
 }
 
 .eventCards {
-  margin-bottom: 0px;
-  text-align: center;
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 #input_text {
-  border-bottom: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 #error-message {
-  display: flex;
-  position: absolute;
-  margin: 0px;
-  padding: 0px;
-  line-height: 0.3rem;
-  font-size: 0.8rem;
-  color: rgb(255, 153, 153);
+    display: flex;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    line-height: 0.3rem;
+    font-size: 0.8rem;
+    color: rgb(255, 153, 153);
 }
 
 header .row {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 @media screen and (min-width: 800px) {
-  iframe {
-    width: 500px;
-    height: 350px;
-  }
+    iframe {
+        width: 500px;
+        height: 350px;
+    }
 }
 
 @media screen and (max-width: 799px) {
-  iframe {
-    width: 300px;
-    height: 200px;
-  }
+    iframe {
+        width: 300px;
+        height: 200px;
+    }
 }

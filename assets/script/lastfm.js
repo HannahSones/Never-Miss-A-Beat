@@ -1,4 +1,3 @@
-
 // Construct URL for LastFM API
 function constructLastFmURL(resultsLimit, apiKey) {
     const trackName = searchInputText.val().replace(/ /g, "");
