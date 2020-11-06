@@ -11,6 +11,11 @@ const resultsLimit = 8;
 displaySearchHistory();
 constructTopTenTrackURL();
 
+// No events found error message displays on load to get the user to search for an artist
+noEventsFound();
+$(".upcomingEventsTitle").hide();
+
+
 // Script for header mobile view
 $('.sidenav').sidenav();
 
