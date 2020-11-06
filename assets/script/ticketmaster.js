@@ -1,12 +1,20 @@
 // Creating URL for events search
 function eventSearchURL(relevantTrackData) {
-    const youtubeURL = relevantTrackData.track[0].strMusicVid
-    embedYtVideo(youtubeURL);
+    console.log(relevantTrackData);
+    
+    if (relevantTrackData.track === null) {
+        noEventsFound();
+    } else {
+        const youtubeURL = relevantTrackData.track[0].strMusicVid;
+        embedYtVideo(youtubeURL);
+    };
+};
+
+    function embedYtVideo(youtubeURL) {
     const searchedArtist = relevantTrackData.track[0].strArtist;
     setToLocalStorage(relevantTrackData);
     const ticketmasterApiKey = "knq7HAEY6x0pW1WzGgOao1TMHDXEoiTR";
     const eventURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=${ticketmasterApiKey}&keyword=${searchedArtist}&locale=*&countryCode=GB`;
-    console.log("Event search URL:", eventURL);
     getSearchResults(eventURL, showEvents, eventSearchError);
 };
 
@@ -26,9 +34,10 @@ function showEvents(eventData) {
     $(".carousel").empty();
     $(displayEventSearchStatus).empty();
     const eventsPresent = eventData._embedded;
-    if (eventsPresent === undefined) {
+    if (eventsPresent === undefined || null) {
         noEventsFound();
-    } else {
+    }
+    else {
         const eventResults = eventData._embedded.events;
         for (eventResult of eventResults) {
             let eventImage = eventResult.images[0].url;
@@ -54,7 +63,7 @@ function showEvents(eventData) {
                     </div>
                 </div>`
             );
-            $('#eventCarousel').carousel();
+            $(".upcomingEventsTitle").show();
         }
     }
 };
