@@ -7,10 +7,13 @@ const displayEventSearchStatus = $("[data-status='event-search']");
 const vidContainer = $("[data-player='embed-YT']");
 
 displaySearchHistory();
+constructTopTenTrackURL();
 // Search Button event listener
 $(searchBtn).on("click", function(event) {
     // event.preventDefault();
     $(displayTrackSearchError).empty();
+    $("#top-ten-list").hide();
+    $(".topTenTitle").hide();
     if ((searchInputText.val().replace(/ /g, "")) < 1) {
         $(displayTrackSearchError).text("Input field cannot be empty")
     } else {
@@ -19,7 +22,7 @@ $(searchBtn).on("click", function(event) {
     }
 });
 
-// Get object throgh ajax, applicable for every ajax requests
+// Get object through ajax, applicable for every ajax requests
 function getSearchResults(queryURL, handleResponse, handleError) {
     $.ajax({
         url: queryURL,
