@@ -24,8 +24,16 @@ body {
 }
 
 #github-logo {
-    max-width: 30px;
+    max-width: 60px;
     margin: 5px;
+}
+
+#ticketmaster-logo {
+    margin-top: 1px;
+    margin-left: -21px;
+    margin-right: -20px;
+    height: 100%;
+    width: auto;
 }
 
 #logo {
