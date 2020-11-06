@@ -13,8 +13,23 @@ body {
     min-width: 300px;
 }
 
+#youtube-logo {
+    max-width: 30px;
+    margin: 5px;
+}
+
+#lastfm-logo {
+    max-width: 30px;
+    margin: 5px;
+}
+
+#github-logo {
+    max-width: 30px;
+    margin: 5px;
+}
+
 #logo {
-    max-width: 50px;
+    max-width: 70px;
     margin: 5px;
 }
 
@@ -56,10 +71,13 @@ header .row {
     margin-bottom: 10px;
 }
 
+
 /* .history-table {
     border: 2px solid black;
     text-align: center;
 } */
+
+
 /* 
 .history-table th td tr {
     border: 2px solid black;
