@@ -1,17 +1,17 @@
 
 // Update history in local storage
-function setToLocalStorage(relevantTrackData) {
-    const searchedArtist = relevantTrackData.track[0].strArtist;
-    const idForStorage = relevantTrackData.track[0].idArtist;
+function setToLocalStorage(searchedPhrase) {
+    // const searchedArtist = relevantTrackData.track[0].strArtist;
+    // const idForStorage = relevantTrackData.track[0].idArtist;
     searchHistory = getFromLocalStorage();
     const searchResult = {
-        name: searchedArtist,
-        id: idForStorage
+        name: searchedPhrase,
+        id: moment().format('YYYY-MM-DD, HH:mm:ss:SS')
     };
-    searchHistory = searchHistory.filter(item => item.id !== idForStorage);
-    if (searchHistory.length > 0 && searchHistory.length < 8) {
+    searchHistory = searchHistory.filter(item => item.name !== searchedPhrase);
+    if (searchHistory.length > 0 && searchHistory.length < 20) {
         searchHistory.push(searchResult);
-    } else if (searchHistory.length >= 8) {
+    } else if (searchHistory.length >= 20) {
         searchHistory.shift();
         searchHistory.push(searchResult);
     } else {
@@ -40,10 +40,19 @@ function displaySearchHistory() {
         )
     } else {
         $("#searchHistory").empty();
+        $("#searchHistory").append(
+            `<tr><td class="center"><a href="#" data-history='clear'><strong>[Clear history]</strong></a></td></tr>`
+        );
         searchHistory.forEach((item) => {
             $("#searchHistory").prepend(
-                `<tr><td class="center"><a href="#">${item.name}</a></td></tr>`
+                `<tr><td class="center"><a data-history-result='${item.name}' href="#">${item.name}</a></td></tr>`
             )
         })
     }
 };
+
+// Clear local storage
+function eraseLocalStorage() {
+    localStorage.clear();
+    displaySearchHistory();
+}
