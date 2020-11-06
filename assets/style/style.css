@@ -13,8 +13,31 @@ body {
     min-width: 300px;
 }
 
+#youtube-logo {
+    max-width: 30px;
+    margin: 5px;
+}
+
+#lastfm-logo {
+    max-width: 30px;
+    margin: 5px;
+}
+
+#github-logo {
+    max-width: 60px;
+    margin: 5px;
+}
+
+#ticketmaster-logo {
+    margin-top: 1px;
+    margin-left: -21px;
+    margin-right: -20px;
+    height: 100%;
+    width: auto;
+}
+
 #logo {
-    max-width: 50px;
+    max-width: 70px;
     margin: 5px;
 }
 
@@ -55,6 +78,19 @@ main {
 header .row {
     margin-bottom: 10px;
 }
+
+
+/* .history-table {
+    border: 2px solid black;
+    text-align: center;
+} */
+
+
+/* 
+.history-table th td tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+} */
 
 @media screen and (min-width: 800px) {
     iframe {

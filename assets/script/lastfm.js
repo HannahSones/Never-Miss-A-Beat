@@ -45,33 +45,34 @@ function getTopTenTracks(topTenTracksURL) {
     $.ajax({
         url: topTenTracksURL,
         method: "GET"
-    }).then(function (topTenResults) {
+    }).then(function(topTenResults) {
         writeTopTenTracks(topTenResults);
-});
+    });
 
 
-// Write top ten UK tracks onto document on page load
-function writeTopTenTracks(topTenResults) {
-    
-    const topTracks = topTenResults.tracks.track;
-    
-    $("#top-ten-list").empty();
-    $(".topTenTitle").show();
+    // Write top ten UK tracks onto document on page load
+    function writeTopTenTracks(topTenResults) {
+
+        const topTracks = topTenResults.tracks.track;
+
+        $("#top-ten-list").empty();
+        $(".topTenTitle").show();
 
 
-    for (topTrack of topTracks) {
+        for (topTrack of topTracks) {
 
-        let trackArtist = topTrack.artist.name;
-        let trackName = topTrack.name;
-        let trackURL = topTrack.url;
+            let trackArtist = topTrack.artist.name;
+            let trackName = topTrack.name;
+            let trackURL = topTrack.url;
 
-        $("#top-ten-list").append(
-            `<li class="collection-item avatar">
+            $("#top-ten-list").append(
+                `<li class="collection-item avatar">
                 <img src="./assets/images/result-icon.png" alt="cover" class="circle">
                 <span class="title">${trackArtist}</span>
                 <p>${trackName}"</p>
                 <a href="${trackURL}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
                 </li>`
-        );
-    };
-}};
+            );
+        };
+    }
+};
