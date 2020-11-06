@@ -12,7 +12,6 @@ function eventSearchURL(relevantTrackData) {
 
     function embedYtVideo(youtubeURL) {
     const searchedArtist = relevantTrackData.track[0].strArtist;
-    setToLocalStorage(relevantTrackData);
     const ticketmasterApiKey = "knq7HAEY6x0pW1WzGgOao1TMHDXEoiTR";
     const eventURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=${ticketmasterApiKey}&keyword=${searchedArtist}&locale=*&countryCode=GB`;
     getSearchResults(eventURL, showEvents, eventSearchError);

@@ -56,16 +56,6 @@ header .row {
     margin-bottom: 10px;
 }
 
-/* .history-table {
-    border: 2px solid black;
-    text-align: center;
-} */
-/* 
-.history-table th td tr {
-    border: 2px solid black;
-    border-collapse: collapse;
-} */
-
 @media screen and (min-width: 800px) {
     iframe {
         width: 500px;
