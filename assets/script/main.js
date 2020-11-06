@@ -8,6 +8,10 @@ const vidContainer = $("[data-player='embed-YT']");
 
 displaySearchHistory();
 constructTopTenTrackURL();
+
+// Script for header mobile view
+$('.sidenav').sidenav();
+
 // Search Button event listener
 $(searchBtn).on("click", function(event) {
     // event.preventDefault();
