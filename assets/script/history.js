@@ -1,4 +1,3 @@
-
 // Update history in local storage
 function setToLocalStorage(searchedPhrase) {
     // const searchedArtist = relevantTrackData.track[0].strArtist;
