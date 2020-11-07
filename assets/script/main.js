@@ -18,6 +18,8 @@ $("#eventCarousel").hide();
 $(searchBtn).on("click", function(event) {
     event.preventDefault();
     $(displayTrackSearchError).empty();
+    $(".upcomingEventsTitle").hide();
+    $("#eventCarousel").empty();
     if ((searchInputText.val().replace(/ /g, "")) < 1) {
         $(displayTrackSearchError).text("Input field cannot be empty")
     } else {
