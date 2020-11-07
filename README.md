@@ -9,7 +9,7 @@ Never Miss A Beat is an application where users can search for their favourite m
 **I WANT** an app that I can search for music and see when my favourite artists are touring,   
 **SO THAT** I never miss my favourite bands playing live
 
-**Target audience:** young adults in the UK
+**Target audience:** young adults in the UK that make up 62% of the 29.8m live music audiences.
 
 #### Motivation
 A survey by Music Venue Trust found that 89% of people in the UK were eager to return to live music. Live events are not something that will disappear as a result of COVID-19, but instead they will adapt and transform, offering a new and unmissable experience. To capture the surge in demand when events return to the UK, our application will be ready to make sure users Never Miss A Beat. Users will be able to search for their favourite music and see upcoming live events from those artists all in one place with a direct link to get tickets.
@@ -62,11 +62,12 @@ On loading, the Never Miss A Beat application presents the user with a clean, po
 The application fetches data from three separate API's - last.fm, Ticketmaster Discovery and AdioDB. It then writes the selected data onto specific elements of the page. Searched artists, if found successfully, are stored in local storage and appended in a previous searches list on the screen so these can be revisited. A clear history button clears the whole search history as well as current search results.  
 When a search is carried out, a collection of that artist's top tracks are appended as well as the top YouTube video which is playable in the browser. An event carousel also appears underneath giving users the ability to swipe through each upcoming event.
 
-*Never Miss A Beat - mobile and desktop version*
-The application is designed with mobile-first in mind and you can see this by the subtle changes in display when comparing mobile viewing and desktop viewing side-by-side.
+*Never Miss A Beat - mobile and desktop version*   
+The application is designed with mobile-first in mind and you can see this by the subtle changes in display when comparing mobile viewing and desktop viewing side-by-side.  
 
-![Never Miss A Beat desktop preview](https://media.giphy.com/media/mmD3JHjxBLyoLJKxN6/giphy.gif)
-![Never Miss A Beat mobile preview](https://media.giphy.com/media/WIjuYJSuti2znBwRcP/giphy.gif)
+![Never Miss A Beat mobile preview](https://media.giphy.com/media/UISQRQCFYKfuJ1VRz0/giphy.gif)
+
+![Never Miss A Beat desktop preview](https://media.giphy.com/media/CF7TcRrgrFIbv691tO/giphy.gif)
 
 -------------
 ## Further Development
