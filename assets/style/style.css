@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    min-width: 300px;
+    min-width: 250px;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -87,11 +87,6 @@ header .row {
     opacity: 0;
 }
 
-.anim-size-huge {
-    transform: scale(3);
-    transition: all 1s;
-}
-
 .anim-size-big {
     transform: scale(1.1);
     transition: all 0.5s;
@@ -111,14 +106,6 @@ header .row {
     display: none;
 }
 
-.anim-height-low {
-    transform: scaleY(0);
-}
-
-.anim-height-norm {
-    transform: scaleY(1);
-    transition: all 0.3s;
-}
 
 @media screen and (min-width: 800px) {
     iframe {

@@ -5,7 +5,6 @@ function showHeader() {
   $(headerElement).animate({
     opacity: 1
   }, 100);
-  $(headerElement).addClass("anim-height-norm");
 };
 
 // Animate top ten list on page load
