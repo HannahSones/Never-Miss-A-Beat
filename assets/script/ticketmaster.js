@@ -4,11 +4,12 @@ function eventSearchURL(relevantTrackData) {
     if (relevantTrackData.track !== null) {
         const youtubeURL = relevantTrackData.track[0].strMusicVid;
         embedYtVideo(youtubeURL);
-
         const searchedArtist = relevantTrackData.track[0].strArtist;
         const ticketmasterApiKey = "knq7HAEY6x0pW1WzGgOao1TMHDXEoiTR";
         const eventURL = `https://app.ticketmaster.com/discovery/v2/events?apikey=${ticketmasterApiKey}&keyword=${searchedArtist}&locale=*&countryCode=GB`;
         getSearchResults(eventURL, showEvents, eventSearchError);
+        $("#eventCarousel").empty();
+        $(displayEventSearchStatus).empty();
         };
 };
 
@@ -25,10 +26,10 @@ function noEventsFound() {
 
 // Show events in carousel
 function showEvents(eventData) {
-    $(".carousel").empty();
-    $(displayEventSearchStatus).empty();
+    // $(".carousel").empty();
+    // $(displayEventSearchStatus).empty();
     const eventsPresent = eventData._embedded;
-    if (eventsPresent === undefined) {
+    if (eventsPresent === undefined || eventsPresent === null || eventsPresent.length === 0) {
         noEventsFound();
     } else {
         const eventResults = eventData._embedded.events;

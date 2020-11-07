@@ -12,7 +12,7 @@ displaySearchHistory();
 constructTopTenTrackURL();
 
 // No events found error message displays on load to get the user to search for an artist
-noEventsFound();
+// noEventsFound();
 $(".upcomingEventsTitle").hide();
 
 // Search Button event listener
