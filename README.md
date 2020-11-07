@@ -65,8 +65,8 @@ When a search is carried out, a collection of that artist's top tracks are appen
 *Never Miss A Beat - mobile and desktop version*
 The application is designed with mobile-first in mind and you can see this by the subtle changes in display when comparing mobile viewing and desktop viewing side-by-side.
 
-![]
-![]
+![Never Miss A Beat desktop preview](https://media.giphy.com/media/mmD3JHjxBLyoLJKxN6/giphy.gif)
+![Never Miss A Beat mobile preview](https://media.giphy.com/media/WIjuYJSuti2znBwRcP/giphy.gif)
 
 -------------
 ## Further Development
