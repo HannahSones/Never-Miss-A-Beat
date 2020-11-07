@@ -15,21 +15,17 @@ constructTopTenTrackURL();
 noEventsFound();
 $(".upcomingEventsTitle").hide();
 
-
-// Script for header mobile view
-$('.sidenav').sidenav();
-
 // Search Button event listener
 $(searchBtn).on("click", function(event) {
     event.preventDefault();
     $(displayTrackSearchError).empty();
-    $("#top-ten-list").hide();
-    $(".topTenTitle").hide();
     if ((searchInputText.val().replace(/ /g, "")) < 1) {
         $(displayTrackSearchError).text("Input field cannot be empty")
     } else {
         constructLastFmURL(resultsLimit, lastfmAPIkey);
-        setToLocalStorage(searchInputText.val())
+        setToLocalStorage(searchInputText.val());
+        hideTopTenAnim();
+        animateHideResults();
     }
 });
 
@@ -48,8 +44,8 @@ $("#searchHistory").on("click", "[data-history-result]", function(event) {
     event.preventDefault();
     searchInputText.val(resultClicked);
     $(displayTrackSearchError).empty();
-    $("#top-ten-list").hide();
-    $(".topTenTitle").hide();
+    hideTopTenAnim();
+    animateHideResults();
     constructLastFmURL(resultsLimit, lastfmAPIkey);
     setToLocalStorage(searchInputText.val())
 });

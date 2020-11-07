@@ -79,18 +79,46 @@ header .row {
     margin-bottom: 10px;
 }
 
+.anim-hide {
+    display: none;
+}
 
-/* .history-table {
-    border: 2px solid black;
-    text-align: center;
-} */
+.anim-transparent {
+    opacity: 0;
+}
 
+.anim-size-huge {
+    transform: scale(3);
+    transition: all 1s;
+}
 
-/* 
-.history-table th td tr {
-    border: 2px solid black;
-    border-collapse: collapse;
-} */
+.anim-size-big {
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+.anim-size-norm {
+    transform: scale(1);
+    transition: all 0.2s;
+}
+
+.anim-size-zero {
+    transform: scale(0);
+    transition: all 0.2s;
+}
+
+#history-table {
+    display: none;
+}
+
+.anim-height-low {
+    transform: scaleY(0);
+}
+
+.anim-height-norm {
+    transform: scaleY(1);
+    transition: all 0.3s;
+}
 
 @media screen and (min-width: 800px) {
     iframe {

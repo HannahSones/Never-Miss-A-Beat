@@ -17,10 +17,11 @@ function searchInputError() {
 // Write searched tracks onto document
 function writeResultsToDoc(lastFmTracks) {
     $(presentedResults).empty();
+    $(vidContainer).empty();
     for (let index = 0; index < lastFmTracks.length; index++) {
         const element = lastFmTracks[index];
         presentedResults.append(
-            `<li class="collection-item avatar">
+            `<li id="result${index+1}" class="collection-item avatar anim-transparent anim-size-big">
                 <img src="./assets/images/result-icon.png" alt="cover" class="circle">
                 <span class="title">${element.artist}</span>
                 <p>${element.name}</p>
@@ -28,6 +29,8 @@ function writeResultsToDoc(lastFmTracks) {
                 </li>`
         )
     }
+    hideTopTenAnim();
+    animateShowResults();
 };
 
 
@@ -56,23 +59,24 @@ function getTopTenTracks(topTenTracksURL) {
         const topTracks = topTenResults.tracks.track;
 
         $("#top-ten-list").empty();
-        $(".topTenTitle").show();
+        // $(".topTenTitle").show();
 
-
-        for (topTrack of topTracks) {
-
+        for (let index = 0; index < topTracks.length; index++) {
+            const topTrack = topTracks[index];
             let trackArtist = topTrack.artist.name;
             let trackName = topTrack.name;
             let trackURL = topTrack.url;
-
+    
             $("#top-ten-list").append(
-                `<li class="collection-item avatar">
+                `<li id="top${index+1}" class="collection-item avatar anim-transparent anim-size-big">
                 <img src="./assets/images/result-icon.png" alt="cover" class="circle">
                 <span class="title">${trackArtist}</span>
                 <p>${trackName}"</p>
                 <a href="${trackURL}" target="_blank" class="secondary-content"><i class="material-icons">play_arrow</i></a>
                 </li>`
             );
-        };
+            
+        }
+        showTopTenResults();
     }
 };
