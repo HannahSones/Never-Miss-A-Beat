@@ -14,10 +14,9 @@ function embedYtVideo(youtubeURL) {
 };
 
 function writeYtVidToDoc(vidID) {
-  // const vidContainer = $("[data-player='embed-YT']");
   vidContainer.empty().append(
     `<iframe width="300" height="200" src="https://www.youtube.com/embed/${vidID}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-  )
+  );
 }
 
 // Video ID is needed to embed youtube iframe
