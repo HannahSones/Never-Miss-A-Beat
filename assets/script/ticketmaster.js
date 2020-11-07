@@ -26,8 +26,6 @@ function noEventsFound() {
 
 // Show events in carousel
 function showEvents(eventData) {
-    // $(".carousel").empty();
-    // $(displayEventSearchStatus).empty();
     const eventsPresent = eventData._embedded;
     if (eventsPresent === undefined || eventsPresent === null || eventsPresent.length === 0) {
         noEventsFound();
