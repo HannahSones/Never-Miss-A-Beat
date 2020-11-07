@@ -29,6 +29,8 @@ function showEvents(eventData) {
     const eventsPresent = eventData._embedded;
     if (eventsPresent === undefined || eventsPresent === null || eventsPresent.length === 0) {
         noEventsFound();
+        $(".upcomingEventsTitle").hide();
+        $("#eventCarousel").hide();
     } else {
         const eventResults = eventData._embedded.events;
         for (eventResult of eventResults) {
@@ -56,6 +58,9 @@ function showEvents(eventData) {
                 </div>`
             );
             $('#eventCarousel').carousel();
+
+            $(".upcomingEventsTitle").show();
+            $("#eventCarousel").show();
         }
     }
 };

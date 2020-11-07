@@ -12,6 +12,7 @@ displaySearchHistory();
 constructTopTenTrackURL();
 
 $(".upcomingEventsTitle").hide();
+$("#eventCarousel").hide();
 
 // Search Button event listener
 $(searchBtn).on("click", function(event) {
