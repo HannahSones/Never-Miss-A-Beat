@@ -81,7 +81,7 @@ Instead of the current UK top 10 displaying on page load, if the user signs in, 
 
 --------------
 ## Link to deployed application
-https://github.com/PavN93/Never-Miss-A-Beat
+https://pavn93.github.io/Never-Miss-A-Beat/
 
 ------------
 ## License
