@@ -2,7 +2,7 @@
 ## Description
 Never Miss A Beat is an application where users can search for their favourite music and see upcoming live events based on their search history.
 
-ADD LOGO HERE
+![NeverMissABeat logo.png](https://github.com/PavN93/Never-Miss-A-Beat/blob/main/NeverMissABeat%20logo.png)
 
 #### User story
 **AS A** live music fan,   
@@ -62,19 +62,11 @@ On loading, the Never Miss A Beat application presents the user with a clean, po
 The application fetches data from three separate API's - last.fm, Ticketmaster Discovery and AdioDB. It then writes the selected data onto specific elements of the page. Searched artists, if found successfully, are stored in local storage and appended in a previous searches list on the screen so these can be revisited. A clear history button clears the whole search history as well as current search results.  
 When a search is carried out, a collection of that artist's top tracks are appended as well as the top YouTube video which is playable in the browser. An event carousel also appears underneath giving users the ability to swipe through each upcoming event.
 
-*Homepage - mobile and desktop version*
-ADD IMAGE OF HOMEPAGE
-
+*Never Miss A Beat - mobile and desktop version*
 The application is designed with mobile-first in mind and you can see this by the subtle changes in display when comparing mobile viewing and desktop viewing side-by-side.
 
-*Example search results*
-ADD IMAGE
-
-If the artist name is incorrect or information cannot be found, the user will be presented with an error message.
-
-*Error message*
-ADD IMAGE
-
+![]
+![]
 
 -------------
 ## Further Development
